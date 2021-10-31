@@ -25,7 +25,7 @@ if(isset( $_POST['register'] )) {
 		$str_msg = "The two passwords provided do not match."; 
 	}
 }
-if (!(isset( $_POST['register'] )) or strlen($err_msg) > 0) {
+if (!(isset( $_POST['register'] )) or strlen($str_msg) > 0) {
 ?>
 
 <!DOCTYPE html>

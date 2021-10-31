@@ -38,7 +38,7 @@ results in an "Incorrect Username/Password" error.
 #### UNION attempt
 
 This can be tested by typing the following in the address bar:
-`localhost:8080/book.php?id=0%20UNION%20SELECT%201,2,3,4,5,6,7,8`
+`localhost:8080/book.php?id=1%20UNION%20SELECT%202,3,4,5,6,7,8,9`
 
 What should occur is that an empty item detail page is displayed.
 
@@ -51,12 +51,12 @@ the expected result is to be told that an invalid username or password was enter
 
 Cross-site scripting (XSS) attacks were prevented by using the PHP functions `stripslashes()` and `strip_tags()` on any
 input variable that may be used to query or insert to a database. This can be tested by trying to access the following
-URL and checking if an alert is displayed:
-`http://localhost/bookshop/book.php?id=3<script type=”text/javascript”>alert(“test”);</script>`
+URL and confirming that the page is still displayed:
+`http://localhost:8080/book.php?id=3%3Cscript%20type=%E2%80%9Dtext/javascript%E2%80%9D%3Edocument.removeChild(document.firstElementChild);%3C/script%3E`
 
 ### Checking password strength
 
-Passwords need to be at least 8 characters with a mix containing at least one upper case letter, at least one upper case
+Passwords need to be at least 8 characters with a mix containing at least one lower case letter, at least one upper case
 letter, and at least one number. The string length check was simple enough and the rest was checked by using a custom
 regular expression.
 

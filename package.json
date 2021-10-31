@@ -1,0 +1,23 @@
+{
+  "name": "bookshop-demo",
+  "version": "1.0.0",
+  "description": "Bookshop app with login and checkout features.",
+  "main": "index.php",
+  "scripts": {
+    "start": "php -S localhost:8080",
+    "test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisstonedev/bookshop-demo.git"
+  },
+  "author": "Chris Stone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrisstonedev/bookshop-demo/issues"
+  },
+  "homepage": "https://github.com/chrisstonedev/bookshop-demo#readme",
+  "devDependencies": {
+    "cypress": "^8.7.0"
+  }
+}
