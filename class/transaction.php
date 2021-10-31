@@ -12,7 +12,7 @@ class Transaction {
     public $cart = null;
 	public $salt = "Zo4rU5Z1YyKJAASY0PT6EUg7BBYdlEhPaNLuxAwU8lqu1ElzHv0Ri7EM6irpx5w";
 
-	public function __construct( $data = array(), $cart, $uid ) {
+	public function __construct( $cart, $uid, $data = array()) {
 		if( isset( $data['addr1'] ) ) $this->username = stripslashes( strip_tags( $data['addr1'] ) );
 		if( isset( $data['addr2'] ) ) $this->password = stripslashes( strip_tags( $data['addr2'] ) );
 		if( isset( $data['city'] ) ) $this->name = stripslashes( strip_tags( $data['city'] ) );
@@ -21,11 +21,6 @@ class Transaction {
 		if( isset( $data['credit'] ) ) $this->name = stripslashes( strip_tags( $data['credit'] ) );
 		if( isset( $data['expire'] ) ) $this->name = stripslashes( strip_tags( $data['expire'] ) );
 		$this->cart = $cart;
-	}
-
-	public function storeFormValues( $post_params, $cart_params, $uid ) {
-		//store the parameters
-		$this->__construct( $post_params, $cart_params, $uid );
 	}
 
 	public function post_order($data, $cart) {

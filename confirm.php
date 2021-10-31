@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once("config.php");
+$total = 0;
 foreach ($_SESSION['cart'] as $prod_id => $prod_qty) {
 	$book = new BookSpecific($prod_id);
 	$total = $total + ($book->cost * $prod_qty);
@@ -8,8 +9,7 @@ foreach ($_SESSION['cart'] as $prod_id => $prod_qty) {
 
 $success = false;
 if(isset( $_POST['submit'] )) {
-	$tran = new Transaction;
-	$tran->storeFormValues( $_POST, $_SESSION['cart'], $_SESSION['uid'] ); //store form values
+	$tran = new Transaction( $_SESSION['cart'], $_SESSION['uid'], $_POST ); //store form values
 	$tran_id = $tran->post_order($_POST, $_SESSION['cart']);
 	if ($tran_id) {
 		$success = true;
